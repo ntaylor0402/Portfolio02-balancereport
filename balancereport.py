@@ -23,7 +23,7 @@ def main():
     ws.delete_rows(ws.max_row)
     ws.insert_cols(4)
 
-    getBalance(ws)
+    ws = getBalance(ws)
 
     wb.save(r"C:\Users\Noah Taylor\Desktop\test.XLSX")
 
@@ -70,6 +70,7 @@ def getBalance(ws):
     balanceHeadingCell.alignment = Alignment(horizontal='left', vertical='top')
     for i in range(3, ws.max_row + 1):
         ws.cell(row=i, column=4).value = ws.cell(row=i, column=3).value + ws.cell(row=i - 1, column=4).value
+    return ws
 
 
 if __name__ == '__main__':
